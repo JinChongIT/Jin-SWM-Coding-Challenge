@@ -9,6 +9,7 @@ Full documentation here [Documentation: Jin-SWM-Coding-Challenge](https://docs.g
 ## Prerequisites
 
 - NPM
+- node.js
 
 ## Installation
 

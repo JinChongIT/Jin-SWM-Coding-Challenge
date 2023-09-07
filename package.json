@@ -1,0 +1,15 @@
+{
+  "name": "jin-swm-coding-challenge",
+  "version": "1.0.0",
+  "description": "A Node.js application to render a news article page with provided JSON",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

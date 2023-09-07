@@ -26,6 +26,7 @@ $ git clone https://github.com/JinChongIT/Jin-SWM-Coding-Challenge.git
 
 ### Run Application
 ```
+ npm run build
 // Start application 
 $ node index.js
 ```

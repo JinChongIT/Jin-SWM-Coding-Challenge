@@ -29,6 +29,8 @@ $ git clone https://github.com/JinChongIT/Jin-SWM-Coding-Challenge.git
  npm run build
 // Start application 
 $ node index.js
+//
+npx jest
 ```
 
 # Maintainers

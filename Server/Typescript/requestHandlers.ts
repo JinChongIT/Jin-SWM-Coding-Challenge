@@ -26,7 +26,7 @@ function reqStart(request, response) {
 function reqCss(request, response) {
 	
 	response.writeHead(200, {'Content-Type': 'text/css'});
-	var readStream = fs.createReadStream("../ClientApp/Css/main.css");
+	let readStream = fs.createReadStream("../ClientApp/Css/main.css");
 	
 	readStream.on('open', function () { 
 		readStream.pipe(response);

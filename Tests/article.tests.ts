@@ -1,4 +1,5 @@
 import { Article } from '../Server/Models/article'
+import { ArticleImage } from "../Server/Models/articleImage"
 
 
 describe('---Test Cases: article.ts----', () => {
@@ -36,7 +37,7 @@ describe('---Test Cases: article.ts----', () => {
   test('publicationOn set to valid string', () => {
     let testVariable = new Article();
     testVariable.PublicationOn = "2020-09-01T01:00:00.000Z";
-    expect(testVariable.Byline).toBe("Tue, 1 Sept 2020 9:00:00am");
+    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00am");
   });
   
 
@@ -57,14 +58,22 @@ describe('---Test Cases: article.ts----', () => {
 
   test('publicationOn is not set', () => {
     let testVariable = new Article();
-    expect(testVariable.Byline).toBe("");
+    expect(testVariable.PublicationOn).toBe("");
   });
 
-  test('Byline is valid format as json', () => {
+  test('publicationOn is valid format as json', () => {
     let testVariable = new Article();
     testVariable.PublicationOn = "2020-09-01T01:00:00.000Z";
-    expect(testVariable.Byline).toBe("Tue, 1 Sept 2020 9:00:00am");
+    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00am");
   });
   
+  /*
+  test('add article image section', () => {
+    let testVariable = new Article();
+    let testVariable2 = new ArticleImage("Cras mattis consectetur purus sit amet fermentum.", "https://images.thewest.com.au/publication/B88945448Z/1536132433649_GKR1Q2DJF.2-1.jpg");
+    testVariable.AddSection(testVariable2);
+    expect(testVariable.Url).toBe("https://images.thewest.com.au/publication/B88945448Z/1536132433649_GKR1Q2DJF.2-1.jpg");
+  });
+  */
   
 });

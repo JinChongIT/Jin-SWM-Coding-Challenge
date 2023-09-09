@@ -9,7 +9,7 @@ export class WriterDatabase { //SELF NOTE: Is this class really needed only two 
         }
     }
 
-    get WritersList(): Array<string> { //SELF NOTE: Doesn't this violate encapsulation? Yes, but class/method is not for client to use but for article class which encapsulates this return
+    get WritersList(): Array<string> { //SELF NOTE: Doesn't this violate encapsulation? Yes, but class/method is not for client to use but for article class which will encapsulates this return
         return this.writersList;
     }
 

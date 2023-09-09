@@ -13,7 +13,7 @@ describe('---Test Cases: writerDatabase.ts----', () => {
     test('add a empty string to writerDatabase', () => {
         let testVariable = new WriterDatabase();
         expect(() => { 
-            testVariable.AddWriter(""); //Handles exception
+            testVariable.AddWriter(""); 
           }).toThrow();
     });
 

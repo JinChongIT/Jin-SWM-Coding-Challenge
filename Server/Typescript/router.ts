@@ -1,6 +1,6 @@
 "use strict";
 
-function route(pathName, handle, request, response) { 
+function route(pathName: any, handle: any, request: any, response: any) {  //SELF NOTE: Isn't any bad? Yes, but converting my node.js web framework to typescript was complex and this is easiest conversion
 	//console.log("entered router(...) router.js");
 	if(typeof handle[pathName] === 'function') {
 		handle[pathName](request, response); //invoke the relevant function

@@ -12,6 +12,8 @@ Adheres to Typescript: https://google.github.io/styleguide/tsguide.html
 
 - NPM
 - Node.js
+- Typescript
+- jest 
 
 ## Installation
 

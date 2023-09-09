@@ -1,4 +1,4 @@
-export class WriterDatabase { //SELF NOTE: Is this class really needed only two functions? Yes, because what if client wants to get the original writer
+export class WriterDatabase { //SELF NOTE: Is this class really needed only two functions? Yes, because what if client wants to get the original writer having that logic here promotes reuse
     private writersList: Array<string> = []; //SELF NOTE: Why not assign in constructor? Adheres to Field initializers coding standard 
 
     AddWriter(newWriter: string) { //SELF NOTE: Why not add this implemention into article class? Because violates S in Solid

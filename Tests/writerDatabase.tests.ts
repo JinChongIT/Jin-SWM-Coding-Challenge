@@ -6,8 +6,8 @@ describe('---Test Cases: writerDatabase.ts----', () => {
     test('add a writer to writerDatabase', () => {
       let testVariable = new WriterDatabase();
       testVariable.AddWriter("Tom");
-      testVariable.AddWriter("luKe");
-      expect(testVariable.WritersList).toStrictEqual(["Tom", "luKe"]);
+      testVariable.AddWriter("luKE");
+      expect(testVariable.WritersList).toStrictEqual(["Tom", "luKE"]);
     });
 
     test('add a empty string to writerDatabase', () => {

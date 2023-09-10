@@ -19,6 +19,7 @@ export class TextFormatDatabase { //SELF NOTE: What happens if two different for
         }
         
         const currentTextLength = this.primaryText.length;
+
         if(newIndexLength > currentTextLength) { 
             throw new Error("error: unable to add text format for that text");
         }

@@ -7,11 +7,12 @@ import { ArticleImage } from "../Models/articleImage"
 import { ArticleText } from "../Models/articleText"
 import { ArticleQuote } from "../Models/articleQuote"
 
+
 export class Article {  
     private headline: string = "";  //SELF NOTE: Why is this correct abstraction? The term headline is common such that the phrase "click-bait headlines"
     private source: string = ""; 
-    private writers: WriterDatabase; //SELF NOTE: Why not call this byline? Poor abstraction. Client will likely ask to get the writers never say hey whats the byline 
-    private publicationOn!: Date; //SELF NOTE: Why not call publicationDate? Poor abstraction date is date not necessary time
+    private writers: WriterDatabase; //SELF NOTE: Why not call this byline? Improved abstraction. Client will likely ask to get the writers never say hey whats the byline 
+    private publicationOn!: Date; //SELF NOTE: Why not call publicationDate? Sort of deceptive abstraction date is date not necessary time
     private sections: (ArticleImage | ArticleText | ArticleQuote)[] = []; //SELF NOTE: why store different object in array? Need to maintain order of article sections
 
     constructor() {
@@ -44,11 +45,11 @@ export class Article {
         }
     }
 
-    get Writers(): ReadonlyArray<string> { //SELF NOTE: Why not return array? Because that defeats the purpose of encapsulation a readonly maintains immutable so clients can't change element
+    get Writers(): ReadonlyArray<string> { //SELF NOTE: Why not return array? Because that violates encapsulation a readonly maintains immutable so clients can't change element
           return this.writers.WritersList;
     }
 
-    set PublicationOn(newPublicationOn: string) { //SELF NOTE: Why is this not a string? Date provides additional methods and error proofing the strings
+    set PublicationOn(newPublicationOn: string) { //SELF NOTE: Why is publicationOn not a string? Date provides additional methods for error proofing the strings
         
         const dateTime = new Date(newPublicationOn);
 ``      
@@ -74,15 +75,52 @@ export class Article {
     }
 
     AddSection(newSection: ArticleText | ArticleImage | ArticleQuote) {
-        this.sections.push(newSection);
+        if(newSection instanceof ArticleImage && !this.IsValidImage(newSection)) {
+            throw new Error("error: unable to add the invalid image section");
+        }
+        if(newSection instanceof ArticleQuote && !this.IsValidQuote(newSection)) {
+            throw new Error("error: unable to add the invalid quote section");
+        }
+
+        if(newSection instanceof ArticleText && !this.IsValidText(newSection)) {
+            throw new Error("error: unable to add the invalid text section");
+        }
+
+        this.sections.push(newSection); //SELF NOTE: Isn't this dangerous? To an extend but specifying the paramater type lessens the danger
+
     }
    
 
-    private ArticleTimeFormatter(newTime: string): string { //SELF NOTE: Why not place inside dateTimeUtils.ts? This function is specific to this class and serves no use to generally
-        const tmpArticleTime = newTime.replace(/\s/g, ''); //SELF NOTE: Why is there no validation? No for clients to use a private internal implemention method so not needed
+    private IsValidImage(newSection: ArticleImage): boolean { //SELF NOTE: Why not place this logic in articleImage? Because this is logic specific to article context
+        if(newSection.Caption.trim() === "" || !newSection.Url) { 
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private IsValidQuote(newSection: ArticleQuote): boolean { //SELF NOTE: Why not place this logic in articleQuote? Because this is logic specific to article context
+        if(newSection.Attribution.trim() === "" || newSection.Quote.trim() === "") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private IsValidText(newSection: ArticleText): boolean {
+        if(newSection.Text.trim() === "") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private ArticleTimeFormatter(newTime: string): string { //SELF NOTE: Why not place inside dateTimeUtils.ts? This function is specific to this class and serves no use generally
+        const tmpArticleTime = newTime.replace(/\s/g, ''); 
         return tmpArticleTime;
     }
     
     
 }
 //TODO: Upper AM/PM + getters for sections? 
+//TODO: Fix published on since no date shown

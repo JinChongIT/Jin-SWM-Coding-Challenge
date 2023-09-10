@@ -3,7 +3,7 @@
 //Import modules
 const fs = require('fs');
 
-function reqStart(request: any, response: any) {  //SELF NOTE: Isn't any bad? Yes, but converting my node.js web framework to typescript was complex and this is easiest conversion
+function reqStart(request: any, response: any) {  
 	console.log("entered reqStart(...) in requestHandlers.js");
 	fs.readFile('../ClientApp/Html/index.html', 'utf8', function (err: unknown, data: string) { 
 		
@@ -23,7 +23,7 @@ function reqStart(request: any, response: any) {  //SELF NOTE: Isn't any bad? Ye
 //Request handlers for resources functions
 //
 //
-function reqCss(request: any, response: any) { //SELF NOTE: Isn't any bad? Yes, but converting my node.js web framework to typescript was complex and this is easiest conversion
+function reqCss(request: any, response: any) { 
 	
 	response.writeHead(200, {'Content-Type': 'text/css'});
 	let readStream = fs.createReadStream("../ClientApp/Css/main.css");

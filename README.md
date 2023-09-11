@@ -16,7 +16,7 @@ Full documentation here [Documentation: Jin-SWM-Coding-Challenge](https://docs.g
 
 ## Installation
 
-Clone repo
+### Clone repo
 ```
 $ git clone https://github.com/JinChongIT/Jin-SWM-Coding-Challenge.git
 ```

@@ -1,10 +1,9 @@
 # Jin-SWM-Coding-Challenge
 
-A Node.js application to render a news article page with provided JSON
+A Node.js (Typescript) application to render a news article page with provided JSON
 
 Full documentation here [Documentation: Jin-SWM-Coding-Challenge](https://docs.google.com/document/d/1lFjd78ZBSuAuxywzAGThZcK9NmWLTK-q8zuIDYYdmKM)
 
-Adheres to Typescript: https://google.github.io/styleguide/tsguide.html
 
 # Getting Started for Local Development
 
@@ -13,7 +12,7 @@ Adheres to Typescript: https://google.github.io/styleguide/tsguide.html
 - NPM
 - Node.js
 - Typescript
-- jest 
+- Jest 
 
 ## Installation
 
@@ -23,18 +22,19 @@ $ git clone https://github.com/JinChongIT/Jin-SWM-Coding-Challenge.git
 ```
 
 ### Install Dependencies
-
 ```
-    [TODO]
+// From Project root
+$ npm run build
 ```
 
 ### Run Application
+
 ```
- npm run build
-// Start application 
+// Start test framework
+$ npx jest
+// Start application (from Jin-SWM-Coding-Challenge\dist)
 $ node index.js
-//
-npx jest
+
 ```
 
 # Maintainers

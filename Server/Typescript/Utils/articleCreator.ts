@@ -47,7 +47,9 @@ function ExtractSections(newArticleSections: string, newSingleArticle: Article) 
             AddImageSection(newsArticleSection, newSingleArticle);
         } else if(newsArticleSection.kind.toUpperCase() === "PULL-QUOTE") {
             AddQuoteSection(newsArticleSection, newSingleArticle);
-        }   
+        } else {
+            console.log("Error: " + newsArticleSection.kind + " invalid kind!");
+        }  
     }    
 }
 

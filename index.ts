@@ -12,9 +12,12 @@ const handle = {
     "/": requestHandlers.reqStart,
 
         //paths URL for resources
-    "/mainStyleSheet": requestHandlers.reqCss
+    "/mainStyleSheet": requestHandlers.reqCss,
+    "/onLoadStart": requestHandlers.reqOnLoadStart,
+    "/requetArticle": requestHandlers.reqArticle
   };
 
+ 
 
 
-server.startServer(router.route, handle); //SELF NOTE: Why not pass the entire router? Because can't be done only way refer to slide 16 of lec04a
+server.startServer(router.route, handle); 

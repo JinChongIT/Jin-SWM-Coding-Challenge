@@ -89,6 +89,10 @@ export class Article {
         this.sections.push(newSection); //SELF NOTE: Isn't this dangerous? To an extend but specifying the paramater type lessens the danger
 
     }
+
+    get Sections(): ReadonlyArray<ArticleImage | ArticleText | ArticleQuote> { //SELF NOTE: Isn't this bad and violates encapsulation? Yes will need to refactor
+        return this.sections;
+    }
    
 
     private IsValidImage(newSection: ArticleImage): boolean { //SELF NOTE: Why not place this logic in articleImage? Because this is logic specific to article context
@@ -122,5 +126,5 @@ export class Article {
     
     
 }
-//TODO: Upper AM/PM + getters for sections? 
+
 //TODO: Fix published on since no date shown

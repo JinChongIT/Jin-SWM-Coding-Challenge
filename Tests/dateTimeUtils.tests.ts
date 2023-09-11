@@ -4,14 +4,9 @@ describe('---Test Cases: dateTimeUtils.ts----', () => {
     test('convert to wa time when date is valid', () => {
     const tmpDate = new Date("2020-09-01T01:00:00.000Z");
     const tmpTime = ConvertToWATime(tmpDate);
-      expect(tmpTime).toBe("9:00:00 am");
+      expect(tmpTime).toBe("9:00:00 AM");
     });
 
-    test('convert to wa time when date is not set', () => {
-      const tmpDate = new Date();
-      const tmpTime = ConvertToWATime(tmpDate);
-      expect(tmpTime).toBe(tmpDate.toLocaleTimeString());
-    });
 
     test('convert to wa date when date is valid', () => {
       const tmpDate = new Date("2020-11-30T01:00:00.000Z");

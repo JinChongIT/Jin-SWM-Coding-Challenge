@@ -6,7 +6,7 @@ import { LoadData } from "../Typescript/Utils/fileProcessor"
 import {RenderArticle} from "../../ClientApp/Typescript/htmlGeneration"
 
 function reqStart(request: any, response: any) {  
-	console.log("entered reqStart(...) in requestHandlers.js");
+	//console.log("entered reqStart(...) in requestHandlers.js");
 	fs.readFile('../ClientApp/Html/index.html', 'utf8', function (err: unknown, data: string) { 
 		
 		if (err instanceof Error) {
@@ -32,8 +32,7 @@ export function reqArticle(request: any, response: any) {
 		});
 		
 		request.addListener('end', function () {
-			//console.log(postData);
-
+			
 			LoadData( (newSingleArticle) => {
 				//console.log(RenderArticle(newSingleArticle))
 				const singleArticleHTML = RenderArticle(newSingleArticle);

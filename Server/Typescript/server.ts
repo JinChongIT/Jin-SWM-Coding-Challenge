@@ -8,7 +8,7 @@ const url = require('url');
 
 function startServer(route: any, handle: any) {  //SELF NOTE: Isn't any bad? Yes, but converting the node.js web framework to typescript was tricky and this is easiest conversion
 
-	http.createServer( function (request: any, response: any) { //SELF NOTE: Why not provide function name? Because in this file we want to define + call server in one method
+	http.createServer( function (request: any, response: any) { 
 	
 		const pathName = url.parse(request.url).pathname;
 		route(pathName, handle, request, response);

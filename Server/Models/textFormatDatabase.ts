@@ -3,12 +3,12 @@ import { TextFormat } from "../Models/textFormat"
 import { TextFormatKind } from "../Typescript/Utils/textFormatKind"
 
 
-export class TextFormatDatabase { //SELF NOTE: What happens if two different formats apply to same section of text? Thats fine since a text can be bold and underline
+export class TextFormatDatabase { //SELF NOTE: What happens if two different formats apply to same section of text? That's fine since a text can be bolded and underlined
 
     private primaryText: string; 
     private textFormatArray: Array<TextFormat> = [];
 
-    constructor(text: string) { //SELF NOTE: Why not provide setters? Because when client adds format to a text changing the text means you need to recheck whether formats are still valid
+    constructor(text: string) { //SELF NOTE: Why not provide setters? Because when client adds format to a text changing the text means you need must re-check whether formats are still valid
         this.primaryText = text; 
     }
 

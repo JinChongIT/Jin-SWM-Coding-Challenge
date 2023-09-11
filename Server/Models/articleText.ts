@@ -7,7 +7,7 @@ export class ArticleText {
     private text: string;
     private textFormatings: TextFormatDatabase;
 
-    constructor(text: string) { //SELF NOTE: Why not empty constructor paramater? The text must be tied to TextFormatDatabase logically a new/changed article text means new formatting
+    constructor(text: string) { //SELF NOTE: Why not empty constructor paramater? The text must be tied to TextFormatDatabase because logically a new/changed article text means new formatting
         this.text = text;
         this.textFormatings = new TextFormatDatabase(text);
     }
@@ -15,7 +15,7 @@ export class ArticleText {
     set Text(newText: string) {
 
         this.text = newText;
-        this.textFormatings = new TextFormatDatabase(newText); //SELF NOTE: Doesn't that mean when article text is changed the formatting for original article is lost? Yes, that makes sense
+        this.textFormatings = new TextFormatDatabase(newText); //SELF NOTE: Doesn't that mean when article text is changed the formattings for original article is lost? Yes, that makes sense
     } 
 
     get Text(): string {

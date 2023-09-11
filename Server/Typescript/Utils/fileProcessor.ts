@@ -1,16 +1,16 @@
 //Import modules
 import * as fs from 'fs';
 
-export function LoadData() {
-    LoadDataFromJSON();
+export function LoadData(callback: (newSingleArticle: Article) => void) {
+    LoadDataFromJSON(callback);
 
 }
 
-function LoadDataFromJSON() {
+function LoadDataFromJSON(callback: (newSingleArticle: Article) => void) {
+    
+    //const filePath = require('path').resolve(__dirname, '../Resources/article.json'); //https://stackoverflow.com/questions/41602075/cannot-find-file-in-node-even-though-it-has-correct-path
 
-    const filePath = require('path').resolve(__dirname, '../../Resources/article.json'); //https://stackoverflow.com/questions/41602075/cannot-find-file-in-node-even-though-it-has-correct-path
-
-    const readStream = fs.createReadStream(filePath); //SELF NOTE: Why not fs.readFile(..)? This reads file in chunks in the event of a very large json fs.readFile not ideal 
+    const readStream = fs.createReadStream("../Server/Resources/article.json"); //SELF NOTE: Why not fs.readFile(..)? This reads file in chunks in the event of a very large json fs.readFile not ideal 
 
     var body = "";
     readStream.on("data", function (dataChunk) {
@@ -18,7 +18,7 @@ function LoadDataFromJSON() {
     });
 
     readStream.on("end", function () {
-        CreateArticle(body);
+        CreateArticle(body, callback);
     });
 
 }
@@ -31,7 +31,7 @@ import { ArticleText } from "../../Models/articleText"
 import { TextFormatKind } from './textFormatKind';
 
 
-function CreateArticle(newAllArticles: string) {
+function CreateArticle(newAllArticles: string, callback: (newSingleArticle: Article) => void) {
     console.log("entered ExtractArticle(...) in fileProcessor.js"); 
     let newSingleArticle = new Article();
     const articles = JSON.parse(newAllArticles);
@@ -59,6 +59,8 @@ function CreateArticle(newAllArticles: string) {
         }
     }
 
+
+    callback(newSingleArticle);
      //console.log(newSingleArticle);
 }
 

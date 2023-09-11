@@ -37,7 +37,7 @@ describe('---Test Cases: article.ts----', () => {
   test('publicationOn set to valid string', () => {
     let testVariable = new Article();
     testVariable.PublicationOn = "2020-09-01T01:00:00.000Z";
-    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00am");
+    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00AM");
   });
   
 
@@ -64,7 +64,7 @@ describe('---Test Cases: article.ts----', () => {
   test('publicationOn is valid format as json', () => {
     let testVariable = new Article();
     testVariable.PublicationOn = "2020-09-01T01:00:00.000Z";
-    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00am");
+    expect(testVariable.PublicationOn).toBe("Tue, 1 Sept 2020 9:00:00AM");
   });
   
   /*

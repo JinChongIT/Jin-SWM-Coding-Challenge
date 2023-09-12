@@ -15,7 +15,7 @@ export class ArticleImage {
         return this.caption;
     }
 
-    set Url(newUrlPath: string) {  //SELF NOTE: Why let client pass URL obj as paramater? Want to promote abstraction hide underlying implementation 
+    set Url(newUrlPath: string) {  //SELF NOTE: Why not let client pass URL obj as paramater? Want to promote abstraction hide underlying implementation 
         const tmpUrl = new URL(newUrlPath);
         this.url = tmpUrl.toJSON();
     }

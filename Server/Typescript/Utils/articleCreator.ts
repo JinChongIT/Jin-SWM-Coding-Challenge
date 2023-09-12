@@ -99,8 +99,10 @@ function AddQuoteSection(newQuoteSection: string, newSingleArticle: Article) {
 function AddTextSectionFormat(newTextSection: string, newArticleText: ArticleText) {
     //console.log("entered AddTextSection(...) in fileProcessor.js"); 
     const newsArticleSection = JSON.parse(JSON.stringify(newTextSection));
+    const intentionsIsNotArray = !Array.isArray(newsArticleSection.intentions);
+    const sectionHasZeroIntentions = newsArticleSection.intentions.length === 0;
 
-    if(!Array.isArray(newsArticleSection.intentions) || newsArticleSection.intentions.length === 0) {
+    if(intentionsIsNotArray || sectionHasZeroIntentions) {
         return;
     }
 

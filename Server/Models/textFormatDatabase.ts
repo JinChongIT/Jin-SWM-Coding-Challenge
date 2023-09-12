@@ -20,14 +20,10 @@ export class TextFormatDatabase { //SELF NOTE: What happens if two different for
         
         const currentTextLength = this.primaryText.length;
 
-        if(newIndexLength > currentTextLength) { 
+        if(newIndexLength > currentTextLength || newStartIndex >= this.primaryText.length) { //SELF NOTE: Why not newIndexInLengthFormat > this.primaryText.length? Because index could be 1 and length could be 2 is fine but 2 index 2 length is not and makese no sense
             throw new Error("error: unable to add text format for that text");
         }
-        if(newStartIndex >= this.primaryText.length) { //SELF NOTE: Why not newIndexInLengthFormat > this.primaryText.length? Because index could be 1 and length could be 2 is fine but 2 index 2 length is not and makese no sense
-            throw new Error("error: unable to add text format for that text");
-        }
-
-
+       
             //Compares the primaryText, newStartIndex, newIndexLength logic (i.e index starting in middle -->)
         const remainingLength = currentTextLength - newStartIndex; //SELF NOTE: Why not + newIndexInLengthFormat
         if(newIndexLength > remainingLength) { 

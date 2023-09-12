@@ -1,8 +1,8 @@
 import { TextFormatKind } from "../Typescript/Utils/textFormatKind"
 
-export class TextFormat { 
+export class TextFormat { //SELF NOTE: Why not include validation logic? Because not this class responsibility it is textFormatDatabase.ts. Doesn't have reference to text to compare with
 
-    private textKind: TextFormatKind //SELF NOTE: Why not include validation logic? Because not this class responsibility it is textFormatDatabase.ts. Doesn't have reference to text to compare with
+    private textKind: TextFormatKind 
     private index: number;
     private length: number 
 
